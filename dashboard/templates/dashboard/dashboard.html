@@ -1,0 +1,181 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+	<style type="text/css">
+
+		.main-container {
+			background-color: #f3f6f9;
+			height: 100vh;
+		}
+
+		.navbar {
+			margin-left: 60px;
+		}
+
+		.sidebar {
+			height: 100%;
+			width: 60px;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #fff;
+			overflow-x: hidden;
+			padding-top: 70px;
+		}
+
+		.sidebar a {
+			padding: 6px 8px 6px 16px;
+			text-decoration: none;
+			font-size: 20px;
+			color: #818181;
+			display: block;
+		}
+
+
+		.sidebar a:hover {
+			color: #111;
+		}
+
+		.main {
+			margin-left: 160px;
+			padding: 0px 10px;
+		}
+
+		@media screen and (max-height: 450px) {
+			.sidebar {padding-top: 15px;}
+			.sidebar a {font-size: 18px;}
+		}
+
+		section.dashboard {
+			padding-top: 80px;
+			padding-left: 70px;
+		}
+
+		.table thead th, .table thead tr {
+			background-color: #f3f6f9;
+			border-bottom: 0;
+			letter-spacing: 1px;
+		}
+
+		.table thead th:first-child, .table thead tr:first-child {
+			border-top-left-radius: .42rem;
+			border-bottom-left-radius: .42rem;
+		}
+
+		.table thead th:last-child, .table thead tr:last-child {
+			border-top-right-radius: .42rem;
+			border-bottom-right-radius: .42rem;
+		}
+
+		.card {
+			box-shadow: 0 0 30px 0 rgba(82,63,105,.05);
+			border: 0;
+			margin-bottom: 3rem;
+		}
+
+	</style>
+
+	<div class="sidebar">
+		<a href="#"><i class="fa fa-fw fa-home"></i></a>
+		<a href="#"><i class="fa fa-fw fa-users"></i></a>
+		<a href="#"><i class="fa fa-fw fa-cog"></i></a>
+		<a href="#"><i class="fas fa-fw fa-file-alt"></i></a>
+		<a href="#"><i class="fa fa-fw fa-user-shield"></i></a>
+	</div>
+
+	<div class="main-container">
+		{% include 'dashboard/navbar.html' %}
+		<section class="dashboard">
+			<div class="container">
+				<div class="card">
+					<div class="card-header font-weight-bold ">
+						Occupied Houses
+					</div>
+
+					<div class="card-body">
+						<table class="table table-hover table-borderless">
+							<thead>
+								<tr>
+									<th scope="col"></th>
+									<th scope="col">Apartment</th>
+									<th scope="col">House No.</th>
+									<th scope="col">Tenant</th>
+									<th scope="col">Payment Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Rwandi</td>
+									<td>HOU001</td>
+									<td>Mark</td>
+									<td class="status">PENDING</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>Rwandi</td>
+									<td>HOU002</td>
+									<td>Jacob</td>
+									<td class="status">PENDING</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>Rwandi</td>
+									<td>HOU003</td>
+									<td>Larry</td>
+									<td class="status">PAID</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header font-weight-bold ">
+						Vacant Houses
+					</div>
+
+					<div class="card-body">
+						<table class="table table-hover table-borderless">
+							<thead>
+								<tr>
+									<th scope="col"></th>
+									<th scope="col">Apartment</th>
+									<th scope="col">House No.</th>
+									<th scope="col">Tenant</th>
+									<th scope="col">Payment Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Rwandi</td>
+									<td>HOU001</td>
+									<td>Mark</td>
+									<td class="status">PENDING</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>Rwandi</td>
+									<td>HOU002</td>
+									<td>Jacob</td>
+									<td class="status">PENDING</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>Rwandi</td>
+									<td>HOU003</td>
+									<td>Larry</td>
+									<td class="status">PAID</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock content %}

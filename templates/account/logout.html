@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<div class="main-container">
+	<div class="container">
+
+		<div class="row justify-content-center h-100">
+			<div class="col-md-6">
+				<div class="card login-card">
+					<div class="card-header">
+						Sign Out
+					</div>
+
+					<div class="card-body">
+						<p>Are you sure you want to sign out?</p>
+						<form method="post" action="{% url 'account_logout' %}">
+							{% csrf_token %}
+
+							{% if redirect_field_value %}
+								<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+							{% endif %}
+
+							{% include 'dashboard/includes/errorhandling.html' %}
+
+							<div class="form-group mt-5">
+								<button type="submit" class="btn btn-secondary btn-block">Sign Out</button>
+							</div>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

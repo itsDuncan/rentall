@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="login-section">
+	<div class="login-overlay">
+		<div class="container">
+			<div class="row login-container justify-content-center">
+				<div class="col-md-6 vertical-center">
+					<div class="card h-600 w-600 br1-5">
+						<div class="card-header text-center br1-5">
+							<img class="w100" src="{% static 'home/svg/admin.svg' %}">
+							<h4 class="font-weight-bolder heading">Login</h4>
+						</div>
+						<div class="card-body">
+							<div class="container px-5">
+								<form method="POST" class="login-form" action="{% url 'account_login' %}">
+									{% csrf_token %}
+
+									{% if redirect_field_value %}
+										<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+									{% endif %}
+
+									{% include 'accounts/error_handling.html' %}
+
+									<i class="fas fa-user-circle"></i>
+									{{ form.login }}
+
+									<i class="fas fa-lock"></i>
+									{{ form.password }}
+
+									<input class="form-control submit mb-3" type="submit" name="login" value="LOGIN">
+
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" id="customCheck1">
+										<label class="custom-control-label" for="customCheck1">Remember Me</label>
+									</div>
+
+									<a class="link my-3" href="{% url 'account_signup' %}">Not yet registered?</a>
+
+									<a class="link my-3" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock content %}
