@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'dashboard',
+    'properties',
 ]
 
 SITE_ID = 1

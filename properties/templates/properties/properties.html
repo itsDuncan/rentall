@@ -1,18 +1,37 @@
+{% extends 'base/base.html' %}
 {% load static %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{% static 'home/images/couch.jpg' %}');" >
+	<div class="overlay"></div>
+	<div class="overlay-2"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+			<div class="col-md-9 pb-5 mb-5 text-center">
+				<h1 class="mb-3 bread">Properties</h1>
+				<p class="breadcrumbs">
+					<span class="mr-2"><a href="{% url 'home:home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span>
+					<span>Properties <i class="ion-ios-arrow-forward"></i></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
 
 <section class="ftco-section goto-here" id="properties">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+			<div class="col-md-12 heading-section text-center mb-5">
 				<span class="subheading">What we offer</span>
 				<h2 class="mb-2">Some Of Our Properties</h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
-				<div class="property-wrap ftco-animate">
+				<div class="property-wrap">
 					<div class="img d-flex align-items-center justify-content-center" style="background-image: url('{% static 'home/images/work-1.jpg' %}');">
-						<a href="#">
+						<a href="properties-single.html">
 						</a>
 						<div class="list-agent d-flex align-items-center">
 							<a href="#" class="agent-info d-flex align-items-center">
@@ -29,8 +48,8 @@
 						</div>
 					</div>
 					<div class="text">
-						<p class="price mb-3"><span class="orig-price">$3,050<small>/month</small></span></p>
-						<h3 class="mb-0"><a href="#">Blue View Home</a></h3>
+						<p class="price mb-3"><span class="orig-price">KES 85,000<small>/month</small></span></p>
+						<h3 class="mb-0"><a href="properties-single.html">Blue View Home</a></h3>
 						<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>Landless, Thika</span>
 						<ul class="property_list">
 							<li><span class="flaticon-bed"></span>3</li>
@@ -40,11 +59,10 @@
 				</div>
 			</div>
 
-
 			<div class="col-md-4">
-				<div class="property-wrap ftco-animate">
+				<div class="property-wrap">
 					<div class="img d-flex align-items-center justify-content-center" style="background-image: url('{% static 'home/images/work-2.jpg' %}');">
-						<a href="#">
+						<a href="properties-single.html">
 						</a>
 						<div class="list-agent d-flex align-items-center">
 							<a href="#" class="agent-info d-flex align-items-center">
@@ -61,8 +79,8 @@
 						</div>
 					</div>
 					<div class="text">
-						<p class="price mb-3"><span class="orig-price">$3,050<small>/month</small></span></p>
-						<h3 class="mb-0"><a href="#">Blue View Home</a></h3>
+						<p class="price mb-3"><span class="orig-price">KES 85,000<small>/month</small></span></p>
+						<h3 class="mb-0"><a href="properties-single.html">Blue View Home</a></h3>
 						<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>Landless, Thika</span>
 						<ul class="property_list">
 							<li><span class="flaticon-bed"></span>3</li>
@@ -73,9 +91,9 @@
 			</div>
 
 			<div class="col-md-4">
-				<div class="property-wrap ftco-animate">
+				<div class="property-wrap">
 					<div class="img d-flex align-items-center justify-content-center" style="background-image: url('{% static 'home/images/work-3.jpg' %}');">
-						<a href="#">
+						<a href="properties-single.html">
 						</a>
 						<div class="list-agent d-flex align-items-center">
 							<a href="#" class="agent-info d-flex align-items-center">
@@ -92,8 +110,8 @@
 						</div>
 					</div>
 					<div class="text">
-						<p class="price mb-3"><span class="orig-price">$3,050<small>/month</small></span></p>
-						<h3 class="mb-0"><a href="#">Blue View Home</a></h3>
+						<p class="price mb-3"><span class="orig-price">KES 85,000<small>/month</small></span></p>
+						<h3 class="mb-0"><a href="properties-single.html">Blue View Home</a></h3>
 						<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>Landless, Thika</span>
 						<ul class="property_list">
 							<li><span class="flaticon-bed"></span>3</li>
@@ -105,3 +123,5 @@
 		</div>
 	</div>
 </section>
+
+{% endblock content %}

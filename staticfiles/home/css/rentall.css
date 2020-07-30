@@ -2,6 +2,15 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+.alert {
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+    background: #faebd7d4;
+    border: #ffa630;
+    color: #2b1900;
+}
+
 .btn.btn-primary {
 	background: #963e00 !important;
 	border: 1px solid #963e00 !important;
@@ -120,4 +129,111 @@ body {
 
 .hue-180 {
 	filter: hue-rotate(180deg);
+}
+
+/* AUTH */
+
+.login-section {
+    background-image: url("{% static 'home/images/couch.jpg' %}");
+    background-size: cover;
+}
+
+.login-overlay {
+    background-color: rgba(80, 151, 153, 0.85);
+}
+
+::placeholder {
+    color: #A8CBCC !important;
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+.login-container .card {
+    box-shadow: -3px 4px 12px 0px #02393c;
+}
+
+.form-control {
+    border-radius: 5rem;
+    border: 2px solid #509699;
+}
+
+.login-container {
+    height: 100vh;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+.h-600 {
+    min-height: 600px;
+}
+
+.w-600 {
+    width: 600px;
+}
+
+.w100 {
+    width: 100px
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: none;
+}
+
+.heading {
+    color: #509799;
+}
+
+.submit {
+    background-color: #FF748D !important;
+    color: #fff !important;
+    font-weight: bold;
+    border: none;
+    transition: background-color .3s ease-out;
+}
+
+.submit:hover, .submit:focus, .submit:active {
+    background-color: #ff4b6c !important;
+    transition: background-color .3s ease-out;
+}
+
+.link {
+    color: #509699 !important;
+    font-size: .9rem;
+    font-weight: 600;
+    display: block;
+}
+
+.login-form i {
+    position: absolute;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    color: #A8CBCC !important;
+    font-size: 1.25rem;
+}
+
+.br1-5 {
+    border-radius: 1.5rem !important;
+}
+
+.custom-control-label {
+    color: #509699 !important;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #509699;
+    background-color: #509699;
+}
+
+#id_login, #id_password, #id_username, #id_password1, #id_password2, #id_email{
+    padding-left: 2.75rem;
+    color: #2f6567!important;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
