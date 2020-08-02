@@ -191,7 +191,7 @@ body {
     background-color: #FF748D !important;
     color: #fff !important;
     font-weight: bold;
-    border: none;
+    border: none !important;
     transition: background-color .3s ease-out;
 }
 

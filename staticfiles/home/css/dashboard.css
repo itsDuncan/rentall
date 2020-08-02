@@ -1,0 +1,74 @@
+.main-container {
+	background-color: #f3f6f9;
+	height: 100vh;
+}
+
+#dashboard .navbar {
+	margin-left: 60px;
+}
+
+.sidebar {
+	height: 100%;
+	width: 60px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	overflow-x: hidden;
+	padding-top: 70px;
+}
+
+.sidebar a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #818181;
+	display: block;
+}
+
+
+.sidebar a:hover {
+	color: #111;
+}
+
+.main {
+	margin-left: 160px;
+	padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidebar {padding-top: 15px;}
+	.sidebar a {font-size: 18px;}
+}
+
+section.dashboard {
+	padding-left: 70px;
+}
+
+.table thead th, .table thead tr {
+	background-color: #f3f6f9;
+	border-bottom: 0;
+	letter-spacing: 1px;
+}
+
+.table thead th:first-child, .table thead tr:first-child {
+	border-top-left-radius: .42rem;
+	border-bottom-left-radius: .42rem;
+}
+
+.table thead th:last-child, .table thead tr:last-child {
+	border-top-right-radius: .42rem;
+	border-bottom-right-radius: .42rem;
+}
+
+.card {
+	box-shadow: 0 0 30px 0 rgba(82,63,105,.05);
+	border: 0;
+	margin-bottom: 3rem;
+}
+
+#dashboard form, #dashboard .form-control {
+	font-size: .88rem;
+	height: unset !important;
+}

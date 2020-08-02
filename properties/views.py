@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Property
 from django.db.models import Q
+from .forms import PropertyCreateForm
+from django.contrib import messages
 
 def properties(request):
 	template_name = 'properties/properties.html'
@@ -17,6 +19,22 @@ def properties(request):
 
 	context = {
 		'properties': properties,
+	}
+
+	return render(request, template_name, context)
+
+def property_create(request):
+	template_name = 'properties/property_create.html'
+	if request.method == 'POST':
+		form = PropertyCreateForm(request.POST or None)
+		if form.is_valid():
+			form.save()
+			messages.success(request, ('Your property has been created!'))
+	else:
+		form = PropertyCreateForm(label_suffix='')
+
+	context = {
+		'form': form,
 	}
 
 	return render(request, template_name, context)

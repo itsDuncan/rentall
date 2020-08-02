@@ -134,7 +134,7 @@ body {
 /* AUTH */
 
 .login-section {
-    background-image: url(/static/home/images/couch.jpg);
+    background-image: url("/static/home/images/couch.6ac299d93279.jpg");
     background-size: cover;
 }
 
