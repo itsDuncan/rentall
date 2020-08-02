@@ -152,7 +152,7 @@ body {
     box-shadow: -3px 4px 12px 0px #02393c;
 }
 
-.form-control {
+.login-section .form-control {
     border-radius: 5rem;
     border: 2px solid #509699;
 }
@@ -236,4 +236,16 @@ body {
     color: #2f6567!important;
     font-weight: 600;
     margin-bottom: 1rem;
+}
+
+.search-btn {
+    background-color: #963e00;
+    border: #963e00;
+    color: #fff;
+}
+
+.search ::placeholder {
+    color: rgba(150, 62, 0, 0.4) !important;
+    font-size: .95rem;
+    font-weight: 600;
 }

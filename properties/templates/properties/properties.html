@@ -2,24 +2,20 @@
 {% load static %}
 
 {% block content %}
+{% include 'home/sections/navbar.html' %}
+
+<style type="text/css">
+	.hero-wrap.hero-wrap-2, .overlay, .overlay-2{
+		height: 400px !important;
+	}
+</style>
 
 <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{% static 'home/images/couch.jpg' %}');" >
 	<div class="overlay"></div>
 	<div class="overlay-2"></div>
-	<div class="container">
-		<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-			<div class="col-md-9 pb-5 mb-5 text-center">
-				<h1 class="mb-3 bread">Properties</h1>
-				<p class="breadcrumbs">
-					<span class="mr-2"><a href="{% url 'home:home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span>
-					<span>Properties <i class="ion-ios-arrow-forward"></i></span>
-				</p>
-			</div>
-		</div>
-	</div>
 </section>
 
-<section class="ftco-section goto-here" id="properties">
+<section class="ftco-section goto-here pt-0" id="properties">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-12 heading-section text-center mb-5">
@@ -27,99 +23,61 @@
 				<h2 class="mb-2">Some Of Our Properties</h2>
 			</div>
 		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-md-6 heading-section text-center mb-5">
+				<form class="search" method="GET" action="{% url 'properties:properties-list' %}">
+					<div class="input-group">
+						<input type="text" name="q" class="form-control" placeholder="Search for a property..." aria-label="Search for a property">
+
+						<div class="input-group-append">
+							<input type="submit" class="btn search-btn" value="Search">
+						</div>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<div class="row">
-			<div class="col-md-4">
-				<div class="property-wrap">
-					<div class="img d-flex align-items-center justify-content-center" style="background-image: url('{% static 'home/images/work-1.jpg' %}');">
-						<a href="properties-single.html">
-						</a>
-						<div class="list-agent d-flex align-items-center">
-							<a href="#" class="agent-info d-flex align-items-center">
-								<h3 class="mb-0 ml-2">Laxit Real Estate</h3>
-							</a>
-							<div class="tooltip-wrap d-flex">
-								<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Like">
-									<span class="ion-ios-heart"><i class="sr-only">Like</i></span>
+			{% for property in properties %}
+				<div class="col-md-4">
+					<div class="property-wrap">
+						<div class="img d-flex align-items-center justify-content-center" style="background-image: url(' {% if property.image %} {{ property.image.url }} {% else %} {% static 'home/images/work-1.jpg' %} {% endif %}');"> 
+							<a href="#"></a>
+							<div class="list-agent d-flex align-items-center">
+								<a href="#" class="agent-info d-flex align-items-center">
+									<h3 class="mb-0 ml-2">{{ property.name }}</h3>
 								</a>
-								<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View">
-									<span class="ion-ios-eye"><i class="sr-only">View</i></span>
-								</a>
+								<div class="tooltip-wrap d-flex"> 
+									<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Like">
+										<span class="ion-ios-heart"><i class="sr-only">Like</i></span>
+									</a>
+									<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View">
+										<span class="ion-ios-eye"><i class="sr-only">View</i></span>
+									</a>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="text">
-						<p class="price mb-3"><span class="orig-price">KES 85,000<small>/month</small></span></p>
-						<h3 class="mb-0"><a href="properties-single.html">Blue View Home</a></h3>
-						<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>Landless, Thika</span>
-						<ul class="property_list">
-							<li><span class="flaticon-bed"></span>3</li>
-							<li><span class="flaticon-bathtub"></span>2</li>
-						</ul>
+						<div class="text">
+							<p class="price mb-3"><span class="orig-price">{{ property.rent }}<small>/month</small></span></p>
+							<h3 class="mb-0"><a href="#">{{property.name}}</a></h3>
+							<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>{{ property.address }}</span>
+							<ul class="property_list">
+								<li><span class="flaticon-bed"></span>{{ property.bedrooms }}</li>
+								<li><span class="flaticon-bathtub"></span>{{ property.washrooms }}</li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
+			{% empty %}
+				{% if request.GET.q %}
+					<p class="text-center">No properties found</p>
+				{% else %}
+					<p class="text-center">No properties found</p>
+				{% endif %}
+			{% endfor %}
 
-			<div class="col-md-4">
-				<div class="property-wrap">
-					<div class="img d-flex align-items-center justify-content-center" style="background-image: url('{% static 'home/images/work-2.jpg' %}');">
-						<a href="properties-single.html">
-						</a>
-						<div class="list-agent d-flex align-items-center">
-							<a href="#" class="agent-info d-flex align-items-center">
-								<h3 class="mb-0 ml-2">Laxit Real Estate</h3>
-							</a>
-							<div class="tooltip-wrap d-flex">
-								<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Like">
-									<span class="ion-ios-heart"><i class="sr-only">Like</i></span>
-								</a>
-								<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View">
-									<span class="ion-ios-eye"><i class="sr-only">View</i></span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="text">
-						<p class="price mb-3"><span class="orig-price">KES 85,000<small>/month</small></span></p>
-						<h3 class="mb-0"><a href="properties-single.html">Blue View Home</a></h3>
-						<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>Landless, Thika</span>
-						<ul class="property_list">
-							<li><span class="flaticon-bed"></span>3</li>
-							<li><span class="flaticon-bathtub"></span>2</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div class="property-wrap">
-					<div class="img d-flex align-items-center justify-content-center" style="background-image: url('{% static 'home/images/work-3.jpg' %}');">
-						<a href="properties-single.html">
-						</a>
-						<div class="list-agent d-flex align-items-center">
-							<a href="#" class="agent-info d-flex align-items-center">
-								<h3 class="mb-0 ml-2">Laxit Real Estate</h3>
-							</a>
-							<div class="tooltip-wrap d-flex">
-								<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Like">
-									<span class="ion-ios-heart"><i class="sr-only">Like</i></span>
-								</a>
-								<a href="#" class="icon-2 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View">
-									<span class="ion-ios-eye"><i class="sr-only">View</i></span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="text">
-						<p class="price mb-3"><span class="orig-price">KES 85,000<small>/month</small></span></p>
-						<h3 class="mb-0"><a href="properties-single.html">Blue View Home</a></h3>
-						<span class="location d-inline-block mb-3"><i class="ion-ios-pin mr-2"></i>Landless, Thika</span>
-						<ul class="property_list">
-							<li><span class="flaticon-bed"></span>3</li>
-							<li><span class="flaticon-bathtub"></span>2</li>
-						</ul>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
