@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+	
+	<div id="dashboard">
+	{% include 'dashboard/includes/sidebar.html' %}
+
+	<div class="main-container">
+		{% include 'dashboard/navbar.html' %}
+		<section class="dashboard">
+			<div class="container">
+				<div class="card">
+					<div class="card-header font-weight-bold ">
+						Tenants
+					</div>
+
+					<div class="card-body">
+						<table class="table table-hover table-borderless">
+							<thead>
+								<tr>
+									<th scope="col"></th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Phone Number</th>
+									<th scope="col">Email Address</th>
+									<th scope="col">Occupation</th>
+									<th scope="col">KRA</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for tenant in tenants %}
+									<tr>
+										<td scope="row">{{ tenant.id }}</td>
+										<td scope="col">{{ tenant.firstname }}</td>
+										<td scope="col">{{ tenant.lastname }}</td>
+										<td scope="col">{{ tenant.phone_number }}</td>
+										<td scope="col">{{ tenant.email }}</td>
+										<td scope="col">{{ tenant.occupation }}</td>
+										<td scope="col">{{ tenant.kra }}</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	</div>
+{% endblock content %}

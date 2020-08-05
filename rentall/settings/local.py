@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'properties',
 ]
 
+AUTH_USER_MODEL = 'accounts.User'
+
 SITE_ID = 1
 
 MIDDLEWARE = [
