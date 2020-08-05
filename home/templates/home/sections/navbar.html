@@ -11,7 +11,17 @@
 				<li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
 				<li class="nav-item"><a href="#agencies" class="nav-link">Agencies</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-				<li class="nav-item"><a href="{%url 'account_login' %}" class="nav-link">Login</a></li>
+
+				<li class="nav-item">
+					<a href="{%url 'account_login' %}" class="nav-link">
+					{% if user.is_authenticated %}
+						Admin Dashboard
+					{% else %}
+						Login
+					{% endif %}
+					</a>
+				</li>
+
 			</ul>
 		</div>
 	</div>

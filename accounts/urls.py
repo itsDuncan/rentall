@@ -5,5 +5,5 @@ from .import views
 app_name = 'accounts'
 
 urlpatterns = [
-	re_path(r'^login/$', views.login, name='login'),
+	re_path(r'^tenant-create/$', views.tenant_create, name='tenant-create'),
 ]

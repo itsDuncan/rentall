@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+	
+	<div id="dashboard">
+	{% include 'dashboard/includes/sidebar.html' %}
+
+	<div class="main-container">
+		{% include 'dashboard/navbar.html' %}
+		<section class="dashboard">
+			<div class="container">
+				<div class="card">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card-header font-weight-bold">
+								Create Tenant
+							</div>
+
+							<div class="card-body">
+								<div class="container px-5">
+									<form method="POST" action="">
+										{% csrf_token %}
+
+										{% include 'accounts/error_handling.html' %}
+
+										{{ form.as_p }}
+
+										<button class="form-control btn btn-primary mb-3" type="submit">Register Tenant</button>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	</div>
+{% endblock content %}

@@ -3,12 +3,12 @@ body {
 }
 
 .alert {
-    position: absolute;
-    width: 100%;
-    z-index: 5;
-    background: #faebd7d4;
-    border: #ffa630;
-    color: #2b1900;
+	position: absolute;
+	width: 100%;
+	z-index: 5;
+	background: #faebd7d4;
+	border: #ffa630;
+	color: #2b1900;
 }
 
 .btn.btn-primary {
@@ -31,23 +31,23 @@ body {
 }
 
 .ftco-counter .text strong.number {
-    font-weight: 300;
-    font-size: 50px;
-    color: #963e00;
+	font-weight: 300;
+	font-size: 50px;
+	color: #963e00;
 }
 
 .listing-wrap .location span {
-    padding: 10px;
-    background: #963e00;
-    color: #fff;
+	padding: 10px;
+	background: #963e00;
+	color: #fff;
 }
 
 .search-property-1 .form-group .form-control.btn {
-    padding: 22px 10px !important;
-    font-size: 20px;
-    background: #963e00 !important;
-    border: none !important;
-    color: #fff !important;
+	padding: 22px 10px !important;
+	font-size: 20px;
+	background: #963e00 !important;
+	border: none !important;
+	color: #fff !important;
 }
 
 .heading-section .subheading {
@@ -63,36 +63,36 @@ body {
 }
 
 .heading-section .subheading:before, .heading-section .subheading:after {
-    position: absolute;
-    top: 50%;
-    right: -60px;
-    content: '';
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 50px;
-    height: 1px;
-    margin-top: -1px;
-    background: #963e00;
+	position: absolute;
+	top: 50%;
+	right: -60px;
+	content: '';
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 50px;
+	height: 1px;
+	margin-top: -1px;
+	background: #963e00;
 }
 
 .property-wrap .img .icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #963e00;
-    color: #fff;
-    font-size: 20px;
-    opacity: 0;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: #963e00;
+	color: #fff;
+	font-size: 20px;
+	opacity: 0;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .property-wrap .text p.price span.orig-price {
-    color: #963e00;
+	color: #963e00;
 }
 
 .services-wrap .icon {
@@ -104,7 +104,7 @@ body {
 }
 
 .agent .desc .details {
-    color: #963e00;
+	color: #963e00;
 }
 
 .brown-text {
@@ -134,118 +134,118 @@ body {
 /* AUTH */
 
 .login-section {
-    background-image: url(/static/home/images/couch.jpg);
-    background-size: cover;
+	background-image: url(/static/home/images/couch.jpg);
+	background-size: cover;
 }
 
 .login-overlay {
-    background-color: rgba(80, 151, 153, 0.85);
+	background-color: rgba(80, 151, 153, 0.85);
 }
 
 ::placeholder {
-    color: #A8CBCC !important;
-    font-size: .95rem;
-    font-weight: 600;
+	color: #A8CBCC !important;
+	font-size: .95rem;
+	font-weight: 600;
 }
 
 .login-container .card {
-    box-shadow: -3px 4px 12px 0px #02393c;
+	box-shadow: -3px 4px 12px 0px #02393c;
 }
 
 .login-section .form-control {
-    border-radius: 5rem;
-    border: 2px solid #509699;
+	border-radius: 5rem;
+	border: 2px solid #509699;
 }
 
 .login-container {
-    height: 100vh;
+	height: 100vh;
 }
 
 .vertical-center {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .h-600 {
-    min-height: 600px;
+	min-height: 600px;
 }
 
 .w-600 {
-    width: 600px;
+	width: 600px;
 }
 
 .w100 {
-    width: 100px
+	width: 100px
 }
 
 .card-header {
-    background-color: #fff;
-    border-bottom: none;
+	background-color: #fff;
+	border-bottom: none;
 }
 
 .heading {
-    color: #509799;
+	color: #509799;
 }
 
 .submit {
-    background-color: #FF748D !important;
-    color: #fff !important;
-    font-weight: bold;
-    border: none !important;
-    transition: background-color .3s ease-out;
+	background-color: #FF748D !important;
+	color: #fff !important;
+	font-weight: bold;
+	border: none !important;
+	transition: background-color .3s ease-out;
 }
 
 .submit:hover, .submit:focus, .submit:active {
-    background-color: #ff4b6c !important;
-    transition: background-color .3s ease-out;
+	background-color: #ff4b6c !important;
+	transition: background-color .3s ease-out;
 }
 
 .link {
-    color: #509699 !important;
-    font-size: .9rem;
-    font-weight: 600;
-    display: block;
+	color: #509699 !important;
+	font-size: .9rem;
+	font-weight: 600;
+	display: block;
 }
 
 .login-form i {
-    position: absolute;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    color: #A8CBCC !important;
-    font-size: 1.25rem;
+	position: absolute;
+	padding-top: 1rem;
+	padding-left: 1rem;
+	color: #A8CBCC !important;
+	font-size: 1.25rem;
 }
 
 .br1-5 {
-    border-radius: 1.5rem !important;
+	border-radius: 1.5rem !important;
 }
 
 .custom-control-label {
-    color: #509699 !important;
-    font-size: .9rem;
-    font-weight: 600;
+	color: #509699 !important;
+	font-size: .9rem;
+	font-weight: 600;
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {
-    color: #fff;
-    border-color: #509699;
-    background-color: #509699;
+	color: #fff;
+	border-color: #509699;
+	background-color: #509699;
 }
 
-#id_login, #id_password, #id_username, #id_password1, #id_password2, #id_email{
-    padding-left: 2.75rem;
-    color: #2f6567!important;
-    font-weight: 600;
-    margin-bottom: 1rem;
+.login-section #id_login, .login-section #id_password, .login-section #id_username, .login-section #id_password1, .login-section #id_password2, .login-section #id_email{
+	padding-left: 2.75rem;
+	color: #2f6567!important;
+	font-weight: 600;
+	margin-bottom: 1rem;
 }
 
 .search-btn {
-    background-color: #963e00;
-    border: #963e00;
-    color: #fff;
+	background-color: #963e00;
+	border: #963e00;
+	color: #fff;
 }
 
 .search ::placeholder {
-    color: rgba(150, 62, 0, 0.4) !important;
-    font-size: .95rem;
-    font-weight: 600;
+	color: rgba(150, 62, 0, 0.4) !important;
+	font-size: .95rem;
+	font-weight: 600;
 }
