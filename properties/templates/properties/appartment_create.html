@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="dashboard">
+	{% include 'dashboard/includes/sidebar.html' %}
+
+	<div class="main-container">
+		{% include 'dashboard/navbar.html' %}
+		<section class="dashboard">
+			<div class="container">
+				<div class="card">
+					<div class="card-header font-weight-bold ">
+						Create Appartment
+					</div>
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-6">
+								<form method="POST" action="">
+
+									{% csrf_token %}
+									{% if form.errors %}
+										{% for error in form.non_field_errors %}
+										<div class="alert alert-danger alert-dismissable fade show" role="alert">
+											{{ error|escape }}
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden="true">&times;</button>
+										</div>
+										{% endfor %}
+
+										{% for field in form %}
+											{% for error in field.errors %}
+											<div class="alert alert-danger alert-dismissable fade show" role="alert">
+												{{ error|escape }}
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden="true">&times;</button>
+											</div>
+											{% endfor %}
+										{% endfor %}
+
+									{% endif %}
+									
+									{{ form.as_p }}
+
+									<button type="submit" class="form-control btn btn-primary mt-3">Create Appartment</button>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+</div>
+{% endblock content %}

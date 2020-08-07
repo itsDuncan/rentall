@@ -1,5 +1,5 @@
 from django import forms
-from .models import Property
+from .models import Property, Appartment, House, OccupiedHouse
 
 class PropertyCreateForm(forms.ModelForm):
 	class Meta:
@@ -68,3 +68,30 @@ class PropertyCreateForm(forms.ModelForm):
 				'class': 'form-control',
 			}),
 	)
+
+class AppartmentCreateForm(forms.ModelForm):
+	class Meta:
+		model = Appartment
+		fields = ['name', 'location']
+
+	def __init__(self, *args, **kwargs):
+		super(AppartmentCreateForm, self).__init__(*args, **kwargs)
+		for fieldname, field in self.fields.items():
+			field.widget.attrs.update({
+				'class': 'form-control',
+				'placeholder': '',
+			})
+
+class HouseCreateForm(forms.ModelForm):
+	class Meta:
+		model = House
+		fields = '__all__'
+		exclude = ['slug']
+
+	def __init__(self, *args, **kwargs):
+		super(HouseCreateForm, self).__init__(*args, **kwargs)
+		for fieldname, field in self.fields.items():
+			field.widget.attrs.update({
+				'class': 'form-control',
+				'placeholder': '',
+			})

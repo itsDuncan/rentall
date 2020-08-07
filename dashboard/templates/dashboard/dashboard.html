@@ -13,10 +13,41 @@
 			<div class="container">
 				<div class="card">
 					<div class="card-header font-weight-bold ">
+						Apartments
+					</div>
+
+					<div class="card-body">
+						<a href="{% url 'properties:appartment-create' %}" class="btn btn-primary mb-3 float-right">Add Appartment</a>
+
+						<table class="table table-hover table-borderless">
+							<thead>
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Name</th>
+									<th scope="col">Location</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for appartment in appartments %}
+									<tr>
+										<th scope="row">{{ appartment.id }}</th>
+										<td>{{ appartment.name }}</td>
+										<td>{{ appartment.location }}</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header font-weight-bold ">
 						Occupied Houses
 					</div>
 
 					<div class="card-body">
+
+						<a href="{% url 'properties:house-create' %}" class="btn btn-primary mb-3 float-right ">Add House</a>
+
 						<table class="table table-hover table-borderless">
 							<thead>
 								<tr>
@@ -28,27 +59,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Rwandi</td>
-									<td>HOU001</td>
-									<td>Mark</td>
-									<td class="status">PENDING</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Rwandi</td>
-									<td>HOU002</td>
-									<td>Jacob</td>
-									<td class="status">PENDING</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Rwandi</td>
-									<td>HOU003</td>
-									<td>Larry</td>
-									<td class="status">PAID</td>
-								</tr>
+								{% for house in occupied_houses %}
+									<tr>
+										<th scope="row">{{ house.id }}</th>
+										<td>{{ house.appartment.name }}</td>
+										<td>{{ house.name }}</td>
+										<td>{{ house.tenant }}</td>
+										<td class="status">{{ house.occupied_house.rent_status }}</td>
+									</tr>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>
@@ -60,38 +79,25 @@
 					</div>
 
 					<div class="card-body">
+						<a href="{% url 'properties:house-create' %}" class="btn btn-primary mb-3 float-right ">Add House</a>
+						
 						<table class="table table-hover table-borderless">
 							<thead>
 								<tr>
-									<th scope="col"></th>
-									<th scope="col">Apartment</th>
 									<th scope="col">House No.</th>
-									<th scope="col">Tenant</th>
-									<th scope="col">Payment Status</th>
+									<th scope="col">Apartment</th>
+									<th scope="col">Location</th>
 								</tr>
 							</thead>
+
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Rwandi</td>
-									<td>HOU001</td>
-									<td>Mark</td>
-									<td class="status">PENDING</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Rwandi</td>
-									<td>HOU002</td>
-									<td>Jacob</td>
-									<td class="status">PENDING</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Rwandi</td>
-									<td>HOU003</td>
-									<td>Larry</td>
-									<td class="status">PAID</td>
-								</tr>
+								{% for house in vacant_houses %}
+									<tr>
+										<th scope="row">{{ house.id }}</th>
+										<td>{{ house.appartment.name }}</td>
+										<td>{{ house.appartment.location }}</td>
+									</tr>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>
