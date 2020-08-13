@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
-from .models import Property
-from django.db.models import Q
-from .forms import PropertyCreateForm, AppartmentCreateForm, HouseCreateForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 from django.contrib import messages
+from django.db.models import Q
+from .models import Property, House
+from .forms import PropertyCreateForm, AppartmentCreateForm, HouseCreateForm
 
 def properties(request):
 	template_name = 'properties/properties.html'
@@ -75,3 +77,37 @@ def house_create(request):
 	}
 
 	return render(request, template_name, context)
+
+def property_detail(request, slug):
+	template_name = 'properties/property.html'
+	house = get_object_or_404(House, slug=slug)
+
+	context = {
+		'house': house,
+	}
+
+	return render(request, template_name, context)
+
+def generate_invoice(request, slug):
+	house = get_object_or_404(House, slug=slug)
+
+	from_email = 'lhirani9@gmail.com'
+	to = request.user.email
+
+	subject = 'House Report'
+	text_content = 'House Report'
+
+	html_content = render_to_string('email/invoice.html', {
+		'username': request.user.username,
+		'house': house,
+		}
+	)
+
+	if html_content:
+		msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+		msg.attach_alternative(html_content, "text/html")
+		msg.content_subtype = "html"
+		msg.send()
+		messages.success(request, 'Your invoice has been successfully generated. Kindly check your email')
+
+		return redirect('dashboard:dashboard')

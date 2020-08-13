@@ -1,26 +1,99 @@
-<!DOCTYPE html>
-{% load static %}
-<html style="color: #14213d; font-family: Source Sans Pro; font-size: 12pt; line-height: 1.6;">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="House Report">
-		<meta name="author" content="Laxit Hirani">
-		<style type="text/css">
-			@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
-			@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-		</style>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>AlQuiler Report</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
-
-	<body>
-		<div style="font-size: 50px; color: #14213d; text-align:center; font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 5px;">AlQuiler</div>
+	<body style="margin: 0; padding: 0;">
+		<div style="font-size: 50px; color: #963e00; text-align:center; font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 5px;">AlQuiler</div>
 		<div>
-			<p>Hey {{ username }}</p>
-			
+			<p>Hey {{ username|capfirst }}</p>
+			<p>Here is your report as requested.</p>
+
+			<hr>
+
+			<h3>Your Appartments</h3>
+
+			<table border="1" class="table" width="600" style="margin-bottom: 1rem; background-color:transparent; border-collapse: collapse;">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Name</th>
+						<th scope="col">Location</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for appartment in appartments %}
+						<tr>
+							<th scope="row">{{ appartment.id }}</th>
+							<td>{{ appartment.name }}</td>
+							<td>{{ appartment.location }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			<hr>
+
+			<h3>Your Occupied Houses</h3>
+
+			<table border="1" class="table" width="600" style="margin-bottom: 1rem; background-color:transparent; border-collapse: collapse;">
+				<thead>
+					<tr>
+						<th width="100" scope="col">ID</th>
+						<th width="100" scope="col">Apartment</th>
+						<th width="100" scope="col">House No.</th>
+						<th width="100" scope="col">Tenant</th>
+						<th width="100" scope="col">Payment Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for house in occupied_houses %}
+						<tr>
+							<th width="100" scope="row" style="text-align: center;">{{ house.id }}</th>
+							<td width="100" style="text-align: center;">{{ house.appartment.name }}</td>
+							<td width="100" style="text-align: center;">{{ house.name }}</td>
+							<td width="100" style="text-align: center;">{{ house.tenant }}</td>
+							<td width="100" class="status" style="text-align: center;">{{ house.occupied_house.rent_status }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			<hr>
+
+			<h3>Your Vacant Houses</h3>
+
+			<table border="1" class="table" width="600" style="margin-bottom: 1rem; background-color:transparent; border-collapse: collapse;">
+				<thead>
+					<tr>
+						<th width="100" scope="col">ID</th>
+						<th width="100" scope="col">Apartment</th>
+						<th width="100" scope="col">House No.</th>
+						<th width="100" scope="col">Tenant</th>
+						<th width="100" scope="col">Payment Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for house in vacant_houses %}
+						<tr>
+							<th width="100" scope="row" style="text-align: center;">{{ house.id }}</th>
+							<td width="100" style="text-align: center;">{{ house.appartment.name }}</td>
+							<td width="100" style="text-align: center;">{{ house.name }}</td>
+							<td width="100" style="text-align: center;">{{ house.tenant }}</td>
+							<td width="100" class="status" style="text-align: center;">{{ house.occupied_house.rent_status }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
 		</div>
 
 		<div style="padding: 1.5rem; max-width: 590px; text-align: center;">
-			<a style="text-decoration: none; width: 250px; display: inline-block; position: relative; color: #fff; cursor: pointer; font-size: 1rem; line-height: 4; letter-spacing: 2px; text-align: center; text-transform: uppercase; background-color: #101010; border: none;" href="#">Back to Alquiler</a>
+			<a style="text-decoration: none; width: 250px; display: inline-block; position: relative; color: #fff; cursor: pointer; font-size: 1rem; line-height: 4; letter-spacing: 2px; text-align: center; text-transform: uppercase; background-color: #963e00; border: none;" href="https://rent-all-laxit.herokuapp.com/">Back to Alquiler</a>
 		</div>
 	</body>
 </html>
+
+	

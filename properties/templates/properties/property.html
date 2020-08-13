@@ -1,0 +1,69 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style type="text/css">
+	h6 {
+		font-weight: 700 !important;
+	}
+</style>
+
+<div id="dashboard">
+	{% include 'dashboard/includes/sidebar.html' %}
+
+	<div class="main-container">
+		{% include 'dashboard/navbar.html' %}
+		<section class="dashboard">
+			<div class="container">
+				<div class="card">
+					<div class="card-header font-weight-bold ">
+						{{ house.name }}
+						<a href="{% url 'properties:generate-invoice' house.slug %}" class="btn btn-primary mb-3 float-right">Generate Invoice</a>
+					</div>
+
+					<hr>
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-6">
+								<h6>Property Name</h6>
+								<p>{{ house.name }}</p>
+
+								<h6>Address</h6>
+								<p>{{ house.address }}</p>
+
+								<h6>Vacant</h6>
+								<p>{{ house.vacant }}</p>
+
+								<h6>Appartment</h6>
+								<p>{{ house.appartment }}</p>
+
+								<h6>Tenant</h6>
+								<p>{{ house.tenant }}</p>
+
+							</div>
+							<div class="col-md-6">
+								<h6>Description</h6>
+								<p>{{ house.description }}</p>
+
+								<h6>Rent</h6>
+								<p>{{ house.rent }}</p>
+
+								<h6>Bedrooms</h6>
+								<p>{{ house.bedrooms }}</p>
+
+								<h6>Washrooms</h6>
+								<p>{{ house.washrooms }}</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+</div>
+{% endblock content %}
