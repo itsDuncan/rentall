@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from accounts.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.urls import reverse
 
 class Property(models.Model):
 	slug = models.SlugField(
@@ -111,10 +112,12 @@ class House(models.Model):
 	@property
 	def is_vacant(self):
 		return self.vacant
-	
 
 	def __str__(self):
 		return self.name
+
+	def get_absolute_url(self):
+		return reverse('properties:properties-detail', args=[str(self.slug)])
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.name)

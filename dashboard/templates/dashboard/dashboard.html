@@ -3,6 +3,12 @@
 {% load static %}
 
 {% block content %}
+<style type="text/css">
+	table a {
+		color: #963e00;
+		font-weight: 700;
+	}
+</style>
 	
 	<div id="dashboard">
 	{% include 'dashboard/includes/sidebar.html' %}
@@ -60,14 +66,19 @@
 								</tr>
 							</thead>
 							<tbody>
+								
 								{% for house in occupied_houses %}
-									<tr>
-										<th scope="row">{{ house.id }}</th>
-										<td>{{ house.appartment.name }}</td>
-										<td>{{ house.name }}</td>
-										<td>{{ house.tenant }}</td>
-										<td class="status">{{ house.occupied_house.rent_status }}</td>
-									</tr>
+									<a href="#">
+										<tr>
+											<th scope="row">{{ house.id }}</th>
+											<td>
+												{{ house.appartment.name }}
+											</td>
+											<td>{{ house.name }}</td>
+											<td>{{ house.tenant }}</td>
+											<td class="status">{{ house.occupied_house.rent_status }}</td>
+										</tr>
+									</a>
 								{% endfor %}
 							</tbody>
 						</table>
@@ -86,6 +97,7 @@
 							<thead>
 								<tr>
 									<th scope="col">House No.</th>
+									<th scope="col">House Name.</th>
 									<th scope="col">Apartment</th>
 									<th scope="col">Location</th>
 								</tr>
@@ -95,6 +107,11 @@
 								{% for house in vacant_houses %}
 									<tr>
 										<th scope="row">{{ house.id }}</th>
+										<td>
+											<a href="{{ house.get_absolute_url }}">
+												{{ house.name }}
+											</a>
+										</td>
 										<td>{{ house.appartment.name }}</td>
 										<td>{{ house.appartment.location }}</td>
 									</tr>
