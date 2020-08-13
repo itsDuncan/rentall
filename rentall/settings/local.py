@@ -114,6 +114,17 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# EMAIL CONFIGURATION
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'lhirani9@gmail.com'
+EMAIL_HOST_PASSWORD = 'ixyxievxkejbjhic'
+DEFAULT_FROM_EMAIL = 'lhirani9@gmail.com'
+EMAIL_USE_TLS = True
+
+ADMINS = [('Laxit Hirani', 'lhirani9@gmail.com')]
+
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ACCOUNT_FORMS = {

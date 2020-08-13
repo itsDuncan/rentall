@@ -10,7 +10,7 @@ SECRET_KEY = '%8o(&%kn+-jmmqr6@u+o=2#fsw2g@qjvzw)45quj&#zkm$*p%v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['rent-all-laxit.herokuapp.com']
 
 # Application definition
 
@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
@@ -28,6 +29,10 @@ INSTALLED_APPS = [
     'dashboard',
     'properties',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -92,10 +97,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+#STATIC FILES
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -103,6 +108,11 @@ STATICFILES_DIRS = [
     'home/static/',
 ]
 
+#MEDIA FILES
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# EMAIL CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -111,7 +121,27 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 EMAIL_USE_TLS = True
 
-ADMINS = [('Duncan Maina', os.environ.get('EMAIL_HOST_USER'))]
+ADMINS = [('Laxit Hirani', os.environ.get('EMAIL_HOST_USER'))]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+ACCOUNT_FORMS = {
+    'login': 'accounts.forms.RentManLoginForm',
+    'signup': 'accounts.forms.RentManSignupForm',
+    'reset_password': 'accounts.forms.RentManResetPasswordForm',
+    'change_password': 'accounts.forms.RentManChangePasswordForm',
+}
+
+# ALLAUTH CONFIGURATION
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = LOGIN_REDIRECT_URL
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'RentAll: '
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_USERNAME_MIN_LENGTH = 3
 
 # HTTPS CONFIGURATION
 CORS_REPLACE_HTTPS_REFERER      = True
